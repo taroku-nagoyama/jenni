@@ -24,6 +24,16 @@ namespace Jenni
             Debug.WriteLine($"template folder {dirTemplate}");
 
             var filesTemplate = Directory.GetFiles(dirTemplate, "*", SearchOption.AllDirectories);
+
+            var index = 0;
+            foreach (var page in filesTemplate.Paginazu(20))
+            {
+                Debug.WriteLine($"======= page {index} ========");
+                foreach (var filename in page)
+                {
+                    Debug.WriteLine($"  {filename}");
+                }
+            }
         }
     }
 }
